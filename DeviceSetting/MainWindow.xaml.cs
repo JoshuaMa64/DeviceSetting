@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace DeviceSetting
@@ -36,8 +38,8 @@ namespace DeviceSetting
                     EntryPoint = item.Element("EntryPoint")?.Value
                 };
 
-            var configs = query;
-            DgParam.ItemsSource = query;
+            var configs = query.ToList();
+            DgParam.ItemsSource = configs;
 
             foreach (var i in configs)
             {
@@ -67,6 +69,21 @@ namespace DeviceSetting
         // TODO:保存当前配置到 DeviceConfig.xml
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+        }
+
+        private void DgParam_Loaded(object sender, RoutedEventArgs e)
+        {
+            var doc = new XmlDocument();
+            doc.Load("DeviceConfig.xml");
+
+            var xdp = new XmlDataProvider
+            {
+                Document = doc,
+                XPath= @"/ROOT/Devices/Device/ParamConfigOption"
+            };
+
+            DgParam.DataContext = xdp;
+            DgParam.SetBinding(ItemsControl.ItemsSourceProperty, new Binding());
         }
     }
 }
