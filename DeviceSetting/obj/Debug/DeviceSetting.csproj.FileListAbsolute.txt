@@ -1,0 +1,19 @@
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\bin\Debug\DeviceSetting.exe.config
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\bin\Debug\DeviceSetting.exe
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\bin\Debug\DeviceSetting.pdb
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\DeviceSetting.csprojResolveAssemblyReference.cache
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\MainWindow.g.cs
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\App.g.cs
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\DeviceSetting_MarkupCompile.cache
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\DeviceSetting_MarkupCompile.lref
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\MainWindow.baml
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\DeviceSetting.g.resources
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\DeviceSetting.Properties.Resources.resources
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\DeviceSetting.csproj.GenerateResource.Cache
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\DeviceSetting.exe
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\DeviceSetting.pdb
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\Theme.baml
+d:\documents\visual studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Documents\DeviceSetting\DeviceSetting\bin\Debug\DeviceSetting.exe.config
+D:\Documents\DeviceSetting\DeviceSetting\obj\Debug\DeviceSetting.exe
+D:\Documents\DeviceSetting\DeviceSetting\obj\Debug\DeviceSetting.pdb

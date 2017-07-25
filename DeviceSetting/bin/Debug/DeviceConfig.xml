@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<ROOT>
+  <DevicePath>Device</DevicePath>
+  <CurrrentDevice id="2" />
+  <Devices>
+    <Device id="1" Name="ZLGCan">
+      <LibarayName>ZLGCan.dll</LibarayName>
+      <Class>ZLGCan.ZlgCanDevice</Class>
+      <EntryPoint>GetInstance</EntryPoint>
+      <Param>
+        <DeviceType>3</DeviceType>
+        <DeviceIndex>0</DeviceIndex>
+        <CanIndex>0</CanIndex>
+        <Timer>1c</Timer>
+      </Param>
+      <ParamConfigOption>
+        <DeviceType>
+          <Type>0</Type>
+          <Type>1</Type>
+          <Type>2</Type>
+          <Type>3</Type>
+          <Type>4</Type>
+        </DeviceType>
+        <DeviceIndex>
+          <Index>0</Index>
+          <Index>1</Index>
+        </DeviceIndex>
+        <CanIndex>
+          <Index>0</Index>
+          <Index>1</Index>
+        </CanIndex>
+        <Timer>
+          <Value>1c</Value>
+          <Value>011c</Value>
+        </Timer>
+      </ParamConfigOption>
+    </Device>
+    <Device id="2" Name="NetWork">
+      <LibarayName>NetWork.dll</LibarayName>
+      <Class>NetWork.UdpDevice</Class>
+      <EntryPoint>GetInstance</EntryPoint>
+      <Param>
+        <IPAddress>127.0.0.1</IPAddress>
+        <Port>8900</Port>
+      </Param>
+    </Device>
+    <Device id="3" Name="SerialPort">
+      <LibarayName>SerialPort.dll</LibarayName>
+      <Class>SerialPort</Class>
+      <EntryPoint>GetInstance</EntryPoint>
+      <Param>
+        <COM>1</COM>
+        <BaudRate>9600</BaudRate>
+      </Param>
+    </Device>
+  </Devices>
+</ROOT>

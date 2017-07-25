@@ -1,0 +1,14 @@
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\bin\Release\DeviceSetting.exe.config
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\bin\Release\DeviceSetting.exe
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\bin\Release\DeviceSetting.pdb
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Release\DeviceSetting.csprojResolveAssemblyReference.cache
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Release\MainWindow.g.cs
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Release\App.g.cs
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Release\DeviceSetting_MarkupCompile.cache
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Release\DeviceSetting_MarkupCompile.lref
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Release\MainWindow.baml
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Release\DeviceSetting.g.resources
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Release\DeviceSetting.Properties.Resources.resources
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Release\DeviceSetting.csproj.GenerateResource.Cache
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Release\DeviceSetting.exe
+D:\Documents\Visual Studio 2015\Projects\DeviceSetting\DeviceSetting\obj\Release\DeviceSetting.pdb
