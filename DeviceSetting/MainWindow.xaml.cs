@@ -36,7 +36,7 @@ namespace DeviceSetting
                     EntryPoint = item.Element("EntryPoint")?.Value
                 };
 
-            var configs = query.ToList();
+            var configs = query;
             DgParam.ItemsSource = query;
 
             foreach (var i in configs)
