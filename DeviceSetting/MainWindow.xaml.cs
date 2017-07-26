@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Documents;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -59,11 +60,15 @@ namespace DeviceSetting
         // 动态展示
         private void LbDevice_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TxtConfig.Text = "";
-            TxtConfig.Text += $"通讯方式： {deviceList[LbDevice.SelectedIndex].Name}\n";
-            TxtConfig.Text += $"库名： {deviceList[LbDevice.SelectedIndex].LibarayName}\n";
-            TxtConfig.Text += $"类名： {deviceList[LbDevice.SelectedIndex].ClassName}\n";
-            TxtConfig.Text += $"入口函数： {deviceList[LbDevice.SelectedIndex].EntryPoint}\n";
+            TxtConfig.Inlines.Clear();
+            TxtConfig.Inlines.Add(new Bold(new Run("通讯方式：")));
+            TxtConfig.Inlines.Add(new Run(deviceList[LbDevice.SelectedIndex].Name + "\n"));
+            TxtConfig.Inlines.Add(new Bold(new Run("库名：")));
+            TxtConfig.Inlines.Add(new Run(deviceList[LbDevice.SelectedIndex].LibarayName + "\n"));
+            TxtConfig.Inlines.Add(new Bold(new Run("类名：")));
+            TxtConfig.Inlines.Add(new Run(deviceList[LbDevice.SelectedIndex].ClassName + "\n"));
+            TxtConfig.Inlines.Add(new Bold(new Run("入口函数：")));
+            TxtConfig.Inlines.Add(new Run(deviceList[LbDevice.SelectedIndex].EntryPoint + "\n"));
         }
 
         // TODO:保存当前配置到 DeviceConfig.xml
