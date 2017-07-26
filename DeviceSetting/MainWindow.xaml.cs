@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -40,7 +41,6 @@ namespace DeviceSetting
                 };
 
             var configs = query.ToList();
-            DgParam.ItemsSource = configs;
 
             foreach (var i in configs)
             {
@@ -49,6 +49,7 @@ namespace DeviceSetting
             }
 
             LbDevice.ItemsSource = nameList;
+            DgParam.ItemsSource = deviceList;
         }
 
         // 退出按钮
@@ -78,17 +79,29 @@ namespace DeviceSetting
 
         private void DgParam_Loaded(object sender, RoutedEventArgs e)
         {
-            var doc = new XmlDocument();
-            doc.Load("DeviceConfig.xml");
+            //var doc = new XmlDocument();
+            //doc.Load("DeviceConfig.xml");
 
-            var xdp = new XmlDataProvider
+            //var xdp = new XmlDataProvider
+            //{
+            //    Document = doc,
+            //    XPath= @"/ROOT/Devices/Device/ParamConfigOption"
+            //};
+
+            //DgParam.DataContext = xdp;
+            //DgParam.SetBinding(ItemsControl.ItemsSourceProperty, new Binding());
+
+            var xdoc = XDocument.Load("DeviceConfig.xml");
+            var query =
+                from ele in xdoc.Descendants().Elements("DeviceType").Elements("Type")
+                select new
+                {
+                    type = ele.Value
+                };
+            foreach (var i in query)
             {
-                Document = doc,
-                XPath= @"/ROOT/Devices/Device/ParamConfigOption"
-            };
-
-            DgParam.DataContext = xdp;
-            DgParam.SetBinding(ItemsControl.ItemsSourceProperty, new Binding());
+                Debug.WriteLine(i.ToString());
+            }
         }
     }
 }
