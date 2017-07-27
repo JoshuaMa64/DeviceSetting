@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -19,7 +20,8 @@ namespace DeviceSetting
     {
         private XDocument xdc;
         private readonly List<XmlConfig> deviceList = new List<XmlConfig>();
-        private readonly List<string> nameList = new List<string>();
+        //private readonly List<string> nameList = new List<string>();
+        private  ObservableCollection<string> nameList = new ObservableCollection<string>();
 
         public MainWindow()
         {
@@ -49,7 +51,7 @@ namespace DeviceSetting
             }
 
             LbDevice.ItemsSource = nameList;
-            DgParam.ItemsSource = deviceList;
+            //DgParam.ItemsSource = deviceList;
         }
 
         // 退出按钮
@@ -100,7 +102,7 @@ namespace DeviceSetting
                 };
             foreach (var i in query)
             {
-                Debug.WriteLine(i.ToString());
+                Debug.WriteLine(i.type);
             }
         }
     }

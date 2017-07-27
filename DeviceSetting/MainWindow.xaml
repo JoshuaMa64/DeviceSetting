@@ -12,6 +12,7 @@
     <Grid Margin="5">
         <Grid.Resources>
             <local:XmlConfig x:Key="Con"/>
+            
         </Grid.Resources>
         <Grid.DataContext>
             <Binding Source="{StaticResource Con}"/>
@@ -34,11 +35,12 @@
             </GroupBox>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="5">
-            <GroupBox Header="{Binding SelectedValue, ElementName=LbDevice, Mode=TwoWay}">
+            <!--<GroupBox Header="{Binding SelectedValue, ElementName=LbDevice, Mode=TwoWay}">-->
+            <GroupBox Header="{Binding Count, ElementName=nameList}">
                 <DataGrid Name="DgParam" Background="White" AutoGenerateColumns="False" Loaded="DgParam_Loaded"
                           CanUserAddRows="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="项目" Width="Auto"/>
+                        <DataGridTextColumn Header="项目" Width="Auto" Binding="{Binding ElementName=nameList, Path=Count}"/>
                         <DataGridComboBoxColumn Header="参数" Width="Auto"/>
                     </DataGrid.Columns>
                 </DataGrid>
