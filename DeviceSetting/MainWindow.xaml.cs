@@ -19,9 +19,11 @@ namespace DeviceSetting
     public partial class MainWindow : Window
     {
         private XDocument xdc;
+
         private readonly List<XmlConfig> deviceList = new List<XmlConfig>();
+
         //private readonly List<string> nameList = new List<string>();
-        private  ObservableCollection<string> nameList = new ObservableCollection<string>();
+        private ObservableCollection<string> nameList = new ObservableCollection<string>();
 
         public MainWindow()
         {
@@ -31,7 +33,7 @@ namespace DeviceSetting
             xdc = !File.Exists("DeviceConfig.xml") ? XmlConfig.Create() : XDocument.Load("DeviceConfig.xml");
 
             // 使用 Linq 读取 DeviceConfig.xml 获取通讯方式种类并添加至 ListBox
-             var query = from item
+            var query = from item
                 in xdc.Descendants("Device")
                 select new XmlConfig
                 {
@@ -42,16 +44,14 @@ namespace DeviceSetting
                     EntryPoint = item.Element("EntryPoint")?.Value
                 };
 
-            var configs = query.ToList();
+             var configs = query.ToList();
 
             foreach (var i in configs)
             {
                 deviceList.Add(i);
                 nameList.Add(i.Name);
             }
-
             LbDevice.ItemsSource = nameList;
-            //DgParam.ItemsSource = deviceList;
         }
 
         // 退出按钮
@@ -60,9 +60,10 @@ namespace DeviceSetting
             Application.Current.Shutdown();
         }
 
-        // 动态展示
+        // 每次变换 ListBox 选择项目刷新内容
         private void LbDevice_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // 刷新已选配置的 TextBlock
             TxtConfig.Inlines.Clear();
             TxtConfig.Inlines.Add(new Bold(new Run("通讯方式：")));
             TxtConfig.Inlines.Add(new Run(deviceList[LbDevice.SelectedIndex].Name + "\n"));
@@ -72,38 +73,38 @@ namespace DeviceSetting
             TxtConfig.Inlines.Add(new Run(deviceList[LbDevice.SelectedIndex].ClassName + "\n"));
             TxtConfig.Inlines.Add(new Bold(new Run("入口函数：")));
             TxtConfig.Inlines.Add(new Run(deviceList[LbDevice.SelectedIndex].EntryPoint + "\n"));
+
+            // 刷新配置参数的 StackPanel
+            MainStack.Children.Clear();
+            var testQuery = xdc.Descendants("ParamConfigOption").Elements().Select(i => i.Name).ToList();
+            foreach (var i in testQuery)
+            {
+                var query = xdc.Descendants("ParamConfigOption").Elements(i.ToString()).Select(x => x.Value);
+                var stack = new StackPanel { Orientation = Orientation.Horizontal };
+                stack.Children.Add(
+                    new TextBlock
+                    {
+                        Text = i.ToString(),
+                        Margin = new Thickness(5)
+                    }
+                );
+                stack.Children.Add(
+                    new ComboBox
+                    {
+                        Width = 100,
+                        Margin = new Thickness(5),
+                        ItemsSource = query,
+                        SelectedIndex = 0
+                    }
+                );
+                MainStack.Children.Add(stack);
+            }
+
         }
 
         // TODO:保存当前配置到 DeviceConfig.xml
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-        }
-
-        private void DgParam_Loaded(object sender, RoutedEventArgs e)
-        {
-            //var doc = new XmlDocument();
-            //doc.Load("DeviceConfig.xml");
-
-            //var xdp = new XmlDataProvider
-            //{
-            //    Document = doc,
-            //    XPath= @"/ROOT/Devices/Device/ParamConfigOption"
-            //};
-
-            //DgParam.DataContext = xdp;
-            //DgParam.SetBinding(ItemsControl.ItemsSourceProperty, new Binding());
-
-            var xdoc = XDocument.Load("DeviceConfig.xml");
-            var query =
-                from ele in xdoc.Descendants().Elements("DeviceType").Elements("Type")
-                select new
-                {
-                    type = ele.Value
-                };
-            foreach (var i in query)
-            {
-                Debug.WriteLine(i.type);
-            }
         }
     }
 }
