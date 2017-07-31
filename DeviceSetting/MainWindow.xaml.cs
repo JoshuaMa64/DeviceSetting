@@ -77,9 +77,14 @@ namespace DeviceSetting
             // 刷新配置参数的 StackPanel
             MainStack.Children.Clear();
             var testQuery = xdc.Descendants("ParamConfigOption").Elements().Select(i => i.Name).ToList();
+            
             foreach (var i in testQuery)
             {
-                var query = xdc.Descendants("ParamConfigOption").Elements(i.ToString()).Select(x => x.Value);
+                //var query = xdc.Descendants("ParamConfigOption").Elements(i.ToString()).Select(x => x.Value);
+                var query = from item in xdc.Descendants("ParamConfigOption").Elements(i.ToString())
+                    select new { param = item.Value };
+                Debug.WriteLine(i.ToString());
+
                 var stack = new StackPanel { Orientation = Orientation.Horizontal };
                 stack.Children.Add(
                     new TextBlock
@@ -93,7 +98,7 @@ namespace DeviceSetting
                     {
                         Width = 100,
                         Margin = new Thickness(5),
-                        ItemsSource = query,
+                        ItemsSource = query.ToList(),
                         SelectedIndex = 0
                     }
                 );
