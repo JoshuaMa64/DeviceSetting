@@ -13,15 +13,6 @@ namespace DeviceSetting
         public string ClassName;
         public string EntryPoint;
 
-        //public XmlConfig(int id, string name, string libarayName, string className, string entryPoint)
-        //{
-        //    Id = id;
-        //    Name = name;
-        //    LibarayName = libarayName;
-        //    ClassName = className;
-        //    EntryPoint = entryPoint;
-        //}
-
         // 创建默认的 DeviceConfig.xml 并保存于根目录
         public static XDocument Create()
         {
@@ -31,7 +22,7 @@ namespace DeviceSetting
                 new XDeclaration("1.0", "utf-8", "no"),
                 new XElement("ROOT",
                     new XElement("DevicePath", "Device"),
-                    new XElement("CurrrentDevice",
+                    new XElement("CurrentDevice",
                         new XAttribute("id", "2")),
                     new XElement("Devices",
                         new XElement("Device",
@@ -77,6 +68,19 @@ namespace DeviceSetting
                             new XElement("Param",
                                 new XElement("IPAddress", "127.0.0.1"),
                                 new XElement("Port", "8900")
+                            ),
+                            new XElement("ParamConfigOption",
+                                new XElement("IPAddress",
+                                    new XElement("Address", "127.0.0.1"),
+                                    new XElement("Address", "192.168.1.1"),
+                                    new XElement("Address", "10.0.0.1")
+                                ),
+                                new XElement("Port",
+                                    new XElement("Number", "8900"),
+                                    new XElement("Number", "80"),
+                                    new XElement("Number", "8080"),
+                                    new XElement("Number", "9080")
+                                )
                             )
                         ),
                         new XElement("Device",
@@ -88,12 +92,24 @@ namespace DeviceSetting
                             new XElement("Param",
                                 new XElement("COM", "1"),
                                 new XElement("BaudRate", "9600")
+                            ),
+                            new XElement("ParamConfigOption",
+                                new XElement("COM",
+                                    new XElement("Index", "1"),
+                                    new XElement("Index", "2"),
+                                    new XElement("Index", "3")
+                                ),
+                                new XElement("BaudRate",
+                                    new XElement("Rate", "4800"),
+                                    new XElement("Rate", "9600"),
+                                    new XElement("Rate", "19200")
+                                )
                             )
                         )
                     )
                 )
             );
-
+            
             #endregion
 
             xdc.Save("DeviceConfig.xml");
