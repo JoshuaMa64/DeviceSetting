@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -82,17 +83,18 @@ namespace DeviceSetting
 
             // 获取预设选项
             var queryParam = from item in xdc.Descendants("Param").Elements()
-                where (string)item.Parent.Parent.Attribute("Name") == currentDevice
-                select new { item.Value };
+                             where (string)item.Parent.Parent.Attribute("Name") == currentDevice
+                             select new { item.Value };
             var paramList = queryParam.Select(a => a.Value).ToList();
 
             // 根据参数列表生成 StackPanel 内的界面元素
-            for (int i = 0; i < paramsQueryList.Count(); i++)
+            for (int i = 0; i < paramsQueryList.Count; i++)
             {
                 var paramName = paramsQueryList[i].ToString();
                 // 分别获取不同项目下的可选择项
                 var queryOption = from item in xdc.Descendants("ParamConfigOption").Elements(paramName).Elements()
-                            select item.Value;
+                                  where (string)item.Parent.Parent.Parent.Attribute("Name") == currentDevice
+                                  select item.Value;
                 var optionList = queryOption.ToList();
                 var stack = new StackPanel { Orientation = Orientation.Horizontal };
                 stack.Children.Add(
@@ -116,9 +118,27 @@ namespace DeviceSetting
             }
         }
 
-        // TODO:保存当前配置到 DeviceConfig.xml
+        // 保存当前配置到 DeviceConfig.xml
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            var currentDevice = deviceList[LbDevice.SelectedIndex].Name;
+            var replaceNode = new List<XElement>();
+            var queryParam = from item in xdc.Descendants("Param")
+                where (string)item.Parent.Attribute("Name") == currentDevice
+                select item;
+            queryParam = queryParam.ToList();
+            // 读取当前屏幕上的已选数据并写入到 XML
+            foreach (var child in MainStack.Children)
+            {
+                var tb = ((StackPanel)child).Children[0] as TextBlock;
+                var cb = ((StackPanel)child).Children[1] as ComboBox;
+                var option = tb.Text;
+                var param = cb.SelectedItem;
+                replaceNode.Add(new XElement(option, param));
+            }
+            queryParam.First().ReplaceNodes(replaceNode);
+            xdc.Root.Element("CurrentDevice").SetAttributeValue("id", LbDevice.SelectedIndex + 1);
+            xdc.Save("DeviceConfig.xml");
             if (!MainStack.Children.Contains(TbInfo))
             {
                 MainStack.Children.Add(TbInfo);
