@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeviceSetting"
         mc:Ignorable="d"
-        Title="通用通讯设备配置工具" Height="390" Width="570">
+        Title="通用通讯设备配置工具" Height="390" Width="570" Icon="setting.ico">
     <Window.Resources>
         <ResourceDictionary Source="Theme.xaml"/>
     </Window.Resources>

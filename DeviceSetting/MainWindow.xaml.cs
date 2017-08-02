@@ -17,8 +17,8 @@ namespace DeviceSetting
     public partial class MainWindow : Window
     {
         private XDocument xdc;
-        private readonly List<XmlConfig> deviceList = new List<XmlConfig>();
-        private ObservableCollection<string> nameList = new ObservableCollection<string>();
+        private List<XmlConfig> deviceList = new List<XmlConfig>();
+        private List<string> nameList = new List<string>();
         private TextBlock TbInfo = new TextBlock {Margin=new Thickness(5), Text = "设置成功保存至 DeviceConfig.xml" };
 
         public MainWindow()
