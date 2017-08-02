@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Media;
 using System.Xml.Linq;
 
 namespace DeviceSetting
@@ -109,6 +110,7 @@ namespace DeviceSetting
                     new ComboBox
                     {
                         Width = 100,
+                        FontFamily = new FontFamily("Consolas"),
                         Margin = new Thickness(5),
                         ItemsSource = optionList,
                         SelectedIndex = optionList.IndexOf(paramList[i])
