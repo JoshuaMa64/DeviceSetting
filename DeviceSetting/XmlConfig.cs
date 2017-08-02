@@ -35,7 +35,7 @@ namespace DeviceSetting
                                 new XElement("DeviceType", "3"),
                                 new XElement("DeviceIndex", "0"),
                                 new XElement("CanIndex", "0"),
-                                new XElement("Timer", "1c")
+                                new XElement("Timer", "0x011C")
                             ),
                             new XElement("ParamConfigOption",
                                 new XElement("DeviceType",
@@ -54,8 +54,21 @@ namespace DeviceSetting
                                     new XElement("Index", "1")
                                 ),
                                 new XElement("Timer",
-                                    new XElement("Value", "1c"),
-                                    new XElement("Value", "011c")
+                                    new XElement("Value", "0xBFFF"),
+                                    new XElement("Value", "0x311C"),
+                                    new XElement("Value", "0x181C"),
+                                    new XElement("Value", "0x87FF"),
+                                    new XElement("Value", "0x091C"),
+                                    new XElement("Value", "0x83FF"),
+                                    new XElement("Value", "0x041C"),
+                                    new XElement("Value", "0x031C"),
+                                    new XElement("Value", "0x81FA"),
+                                    new XElement("Value", "0x011C"),
+                                    new XElement("Value", "0x80FA"),
+                                    new XElement("Value", "0x001C"),
+                                    new XElement("Value", "0x80B6"),
+                                    new XElement("Value", "0x0016"),
+                                    new XElement("Value", "0x0014")
                                 )
                             )
                         ),
@@ -91,7 +104,10 @@ namespace DeviceSetting
                             new XElement("EntryPoint", "GetInstance"),
                             new XElement("Param",
                                 new XElement("COM", "1"),
-                                new XElement("BaudRate", "9600")
+                                new XElement("BaudRate", "9600"),
+                                new XElement("StopBit", "1"),
+                                new XElement("DataBit", "8"),
+                                new XElement("ParityCheck", "Odd")
                             ),
                             new XElement("ParamConfigOption",
                                 new XElement("COM",
@@ -103,6 +119,21 @@ namespace DeviceSetting
                                     new XElement("Rate", "4800"),
                                     new XElement("Rate", "9600"),
                                     new XElement("Rate", "19200")
+                                ),
+                                new XElement("StopBit",
+                                    new XElement("Bit", "1"),
+                                    new XElement("Bit", "1.5"),
+                                    new XElement("Bit", "2")
+                                ),
+                                new XElement("DataBit",
+                                    new XElement("Bit", "8"),
+                                    new XElement("Bit", "7"),
+                                    new XElement("Bit", "6"),
+                                    new XElement("Bit", "5")
+                                ),
+                                new XElement("ParityCheck",
+                                    new XElement("Check", "Odd"),
+                                    new XElement("Check", "Even")
                                 )
                             )
                         )
