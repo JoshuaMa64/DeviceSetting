@@ -15,7 +15,7 @@ namespace DeviceSetting
     /// <summary>
     ///     MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : UserControl
     {
         private XDocument xdc;
         private List<XmlConfig> deviceList = new List<XmlConfig>();
