@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceSetting", "DeviceSetting\DeviceSetting.csproj", "{755CD49B-229D-4ED0-9BCC-6369E632CF59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTest", "WpfTest\WpfTest.csproj", "{A44B719A-8B7B-4FB6-9CBC-AB1D1E57118C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{755CD49B-229D-4ED0-9BCC-6369E632CF59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{755CD49B-229D-4ED0-9BCC-6369E632CF59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{755CD49B-229D-4ED0-9BCC-6369E632CF59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A44B719A-8B7B-4FB6-9CBC-AB1D1E57118C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A44B719A-8B7B-4FB6-9CBC-AB1D1E57118C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A44B719A-8B7B-4FB6-9CBC-AB1D1E57118C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A44B719A-8B7B-4FB6-9CBC-AB1D1E57118C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49328864-C66C-4E6D-859B-3D6A836E9B50}
 	EndGlobalSection
 EndGlobal

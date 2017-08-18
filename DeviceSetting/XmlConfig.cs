@@ -133,7 +133,8 @@ namespace DeviceSetting
                                 ),
                                 new XElement("ParityCheck",
                                     new XElement("Check", "Odd"),
-                                    new XElement("Check", "Even")
+                                    new XElement("Check", "Even"),
+                                    new XElement("Check", "No")
                                 )
                             )
                         )
